@@ -11,7 +11,6 @@ import android.os.IBinder;
 import android.util.Log;
 
 import com.actionbarsherlock.app.SherlockActivity;
-import com.crittercism.app.Crittercism;
 import com.iskrembilen.quasseldroid.R;
 import com.iskrembilen.quasseldroid.events.ConnectionChangedEvent;
 import com.iskrembilen.quasseldroid.events.ConnectionChangedEvent.Status;
@@ -30,12 +29,6 @@ public class SplashActivity extends SherlockActivity {
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(ThemeUtil.theme);
         super.onCreate(savedInstanceState);
-        //Init crittercism
-        boolean isDebugbuild = (0 != (getApplicationInfo().flags &= ApplicationInfo.FLAG_DEBUGGABLE));
-        if (!isDebugbuild && getResources().getBoolean(R.bool.use_crittercism)) {
-            Log.i(TAG, "Enabeling Crittercism");
-            Crittercism.init(getApplicationContext(), getResources().getString(R.string.crittercism_api_key));
-        }
         setContentView(R.layout.splash);
         getSupportActionBar().hide();
     }
